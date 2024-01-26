@@ -82,7 +82,7 @@ wn.onkeypress(go_right, "d")
 while True:
     wn.update()
 
-    # Check for collision with border
+        # Check for collision with border
     if (
         head.xcor() > 299
         or head.xcor() < -299
@@ -92,6 +92,13 @@ while True:
         time.sleep(1)
         head.goto(0, 0)
         head.direction = "stop"
+
+        # Reset the score to 0
+        score = 0
+
+        # Update the score display
+        pen.clear()
+        pen.write("Score: {} High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
     if head.distance(food) < 20:
         # Move the food using the random module
